@@ -795,3 +795,50 @@ body {
   color: var(--text-primary);
   border-color: var(--accent-1);
 }
+
+/* ── Model Selector ─────────────────────────────────────── */
+.model-selector-container {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.model-selector-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.model-selector-select {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.model-selector-select:hover {
+  border-color: var(--accent-1);
+}
+
+.model-selector-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.model-selector-subtitle {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  word-break: break-all;
+}

@@ -34,7 +34,7 @@ class LLMModels(BaseModel):
     openai: str = "gpt-4o-mini"
     anthropic: str = "claude-3-haiku-20240307"
     ollama: str = "llama3.2"
-    vertexai: str = "gemini-2.0-flash"
+    vertexai: str = "gemini-3.7-flash"
 
 
 class LLMSettings(BaseModel):

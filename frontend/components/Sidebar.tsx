@@ -3,6 +3,7 @@
 // Document list + upload button
 
 import { DocumentInfo, deleteDocument, formatFileSize, formatDate } from '../lib/api';
+import ModelSelector from './ModelSelector';
 
 interface Props {
   documents: DocumentInfo[];
@@ -27,6 +28,7 @@ export default function Sidebar({ documents, loading, onUploadClick, onDeleted }
       <div className="sidebar-header">
         <div className="sidebar-logo">⚡ PDF-QA</div>
         <div className="sidebar-subtitle">RAG-powered document chat</div>
+        <ModelSelector />
       </div>
 
       <div className="sidebar-body">

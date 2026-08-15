@@ -51,10 +51,12 @@ if cfg.api.cors_allow_all:
 
 from backend.api.chat import router as chat_router
 from backend.api.documents import router as documents_router
+from backend.api.config import router as config_router
 
 app.include_router(health_router)           # Phase 2  — /api/health
 app.include_router(documents_router)        # Phase 3  — /api/documents
 app.include_router(chat_router)             # Phase 4  — /api/chat
+app.include_router(config_router)           # Phase 7  — /api/config
 # app.include_router(agent_router)          # Phase 6  — /api/agent
 
 # ── Root ─────────────────────────────────────────────────────────────────────

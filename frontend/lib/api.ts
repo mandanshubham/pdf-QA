@@ -159,3 +159,31 @@ export function formatDate(iso: string): string {
     month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
   });
 }
+
+// ── Config API ─────────────────────────────────────────────────────────────
+
+export interface LLMConfigResponse {
+  provider: string;
+  model: string;
+  available_providers: string[];
+  available_models: Record<string, string[]>;
+}
+
+export async function getLLMConfig(): Promise<LLMConfigResponse> {
+  const res = await fetch(`${API_BASE}/api/config/llm`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to get LLM config');
+  return res.json();
+}
+
+export async function updateLLMConfig(provider: string, model: string): Promise<LLMConfigResponse> {
+  const res = await fetch(`${API_BASE}/api/config/llm`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ provider, model }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ detail: 'Failed to update LLM config' }));
+    throw new Error(err.detail || 'Failed to update LLM config');
+  }
+  return res.json();
+}
